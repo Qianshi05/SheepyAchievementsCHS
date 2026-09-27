@@ -1,0 +1,57 @@
+{
+  "status": "complete",
+  "app_id": "909080",
+  "target_language": "schinese",
+  "original_source": "games/909080/original/UserGameStatsSchema_909080.bin",
+  "original_was_modified": false,
+  "source_sha256": "51b079d827906fbed06087f6d6e800c5c46f717db6d26bfd7775af5ab0fd0e1c",
+  "localized_sha256": "dc9bc789cd337b927594bf4f0331e16f4092c21a26e375bdec9ec7e7ce2e07a9",
+  "localized_size": 9985,
+  "roundtrip_equal": true,
+  "achievement_count": 28,
+  "target_language_coverage_count": 28,
+  "target_language_coverage": {
+    "names": 28,
+    "descriptions": 28,
+    "complete_achievements": 28
+  },
+  "target_language_nodes_changed": 56,
+  "source_languages_consulted": [
+    "english"
+  ],
+  "online_sources": [
+    {
+      "kind": "community-translation-library",
+      "url": "https://raw.githubusercontent.com/GaBoron/steam-achievement-translation-library/main/files/909080/UserGameStatsSchema_909080.bin",
+      "note": "GaBoron 成就翻译库的 909080 条目，带 schinese，作为已验证的既有译本采用；其英文原文与本机 schema 逐条完全一致，确认针对同一成就集与版本。"
+    },
+    {
+      "kind": "official-store-page",
+      "url": "https://store.steampowered.com/app/909080/",
+      "note": "官方商店页（简体中文），用于确认游戏身份、官方简中名与官方中文支持情况。"
+    },
+    {
+      "kind": "steam-web-api",
+      "url": "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=909080&format=json",
+      "note": "线上成就接口，校验本地 schema 的成就集合与线上一致、无版本漂移。"
+    }
+  ],
+  "translation_library": {
+    "checked": true,
+    "match": {
+      "game_name": "方块逃脱：悖论",
+      "languages": [
+        "english",
+        "schinese"
+      ],
+      "schema_file": "files/909080/UserGameStatsSchema_909080.bin",
+      "sha256": "dc9bc789cd337b927594bf4f0331e16f4092c21a26e375bdec9ec7e7ce2e07a9",
+      "source_url": "https://raw.githubusercontent.com/GaBoron/steam-achievement-translation-library/main/files/909080/UserGameStatsSchema_909080.bin",
+      "local_reference": "work\\references\\translation-library\\UserGameStatsSchema_909080.bin"
+    }
+  },
+  "final_bin": "UserGameStatsSchema_909080.bin",
+  "final_zip": "UserGameStatsSchema_909080.zip",
+  "report": "games/909080/report.json",
+  "final_zip_sha256": "44966ccbca400bd84522a76ff92c3f44571b78aacd178dd62bad05905615c051"
+}

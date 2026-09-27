@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "app_id": "909080",
+  "target_language": "schinese",
+  "original_source": "games/909080/original/UserGameStatsSchema_909080.bin",
+  "source_file": "input\\UserGameStatsSchema_909080.bin",
+  "source_sha256": "51b079d827906fbed06087f6d6e800c5c46f717db6d26bfd7775af5ab0fd0e1c",
+  "source_size": 8380,
+  "achievement_count": 28,
+  "source_languages": [
+    "english"
+  ],
+  "source_language_coverage": {
+    "english": {
+      "names": 28,
+      "descriptions": 28,
+      "complete_achievements": 28
+    }
+  },
+  "translation_library": {
+    "checked": true,
+    "match": {
+      "game_name": "方块逃脱：悖论",
+      "languages": [
+        "english",
+        "schinese"
+      ],
+      "schema_file": "files/909080/UserGameStatsSchema_909080.bin",
+      "sha256": "dc9bc789cd337b927594bf4f0331e16f4092c21a26e375bdec9ec7e7ce2e07a9",
+      "source_url": "https://raw.githubusercontent.com/GaBoron/steam-achievement-translation-library/main/files/909080/UserGameStatsSchema_909080.bin",
+      "local_reference": "work\\references\\translation-library\\UserGameStatsSchema_909080.bin"
+    }
+  }
+}

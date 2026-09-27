@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "app_id": "346110",
+  "target_language": "schinese",
+  "original_source": "games/346110/original/UserGameStatsSchema_346110.bin",
+  "source_file": "input\\UserGameStatsSchema_346110.bin",
+  "source_sha256": "c29f5ed120a5572cea88cfd3a6d5a2bce70ccf655dc80bab72bae174970892d2",
+  "source_size": 47470,
+  "achievement_count": 32,
+  "source_languages": [
+    "english",
+    "brazilian",
+    "czech",
+    "finnish",
+    "french",
+    "german",
+    "hungarian",
+    "italian",
+    "koreana",
+    "polish",
+    "russian",
+    "spanish",
+    "turkish",
+    "ukrainian"
+  ],
+  "source_language_coverage": {
+    "english": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "brazilian": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "czech": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "finnish": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "french": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "german": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "hungarian": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "italian": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "koreana": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "polish": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "russian": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "spanish": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "turkish": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    },
+    "ukrainian": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    }
+  },
+  "translation_library": {
+    "checked": true,
+    "match": {
+      "game_name": "ARK: Survival Evolved 方舟：生存进化",
+      "languages": [
+        "brazilian",
+        "czech",
+        "english",
+        "finnish",
+        "french",
+        "german",
+        "hungarian",
+        "italian",
+        "koreana",
+        "polish",
+        "russian",
+        "schinese",
+        "spanish",
+        "turkish",
+        "ukrainian"
+      ],
+      "schema_file": "files/346110/UserGameStatsSchema_346110.bin",
+      "sha256": "55a0ff19308f995e02f8b2a74057b5fb93a842d375bd84ac1e2349133f39c1d5",
+      "source_url": "https://raw.githubusercontent.com/GaBoron/steam-achievement-translation-library/main/files/346110/UserGameStatsSchema_346110.bin",
+      "local_reference": "work\\references\\translation-library\\UserGameStatsSchema_346110.bin"
+    }
+  }
+}
