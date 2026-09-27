@@ -1,0 +1,42 @@
+{
+  "status": "complete",
+  "app_id": "1568400",
+  "target_language": "schinese",
+  "original_source": "original/UserGameStatsSchema_1568400.bin",
+  "original_was_modified": false,
+  "source_sha256": "75f1d1f6a337c539e212133dbd6ebf4b10ef318ef4b605ed98828c415ab8a911",
+  "localized_sha256": "c8c88589eb9ecf9b77c3f1201a38eef8e00c25666ac6666da179f1d3570da229",
+  "localized_size": 10524,
+  "roundtrip_equal": true,
+  "achievement_count": 30,
+  "target_language_coverage_count": 30,
+  "target_language_coverage": {
+    "names": 30,
+    "descriptions": 30,
+    "complete_achievements": 30
+  },
+  "target_language_nodes_changed": 60,
+  "source_languages_consulted": [
+    "english"
+  ],
+  "online_sources": [
+    {
+      "kind": "official-store-page",
+      "url": "https://store.steampowered.com/app/1568400/",
+      "note": "官方商店页面（简体中文），用于确认游戏身份、官方中文支持与作品语气（短篇、免费、含闪光与噪音警告）。"
+    },
+    {
+      "kind": "steam-web-api",
+      "url": "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=1568400&format=json",
+      "note": "线上成就接口，用于校验本地 schema 的成就 API 名称集合；确认线上为 30 条且与本地完全一致，无版本漂移；各成就解锁率用于判断隐藏成就与描述语气（如 crystals 4.5%、nodeath 2.1% 属高难收集）。"
+    }
+  ],
+  "translation_library": {
+    "checked": true,
+    "match": null
+  },
+  "final_bin": "UserGameStatsSchema_1568400.bin",
+  "final_zip": "UserGameStatsSchema_1568400.zip",
+  "report": "work/report.json",
+  "final_zip_sha256": "bfa1e171da1dd70a360dc8204c601e923d11da5ca0a8dae14bcc0f68e1bfe411"
+}
