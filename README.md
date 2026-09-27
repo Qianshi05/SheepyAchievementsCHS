@@ -2,6 +2,8 @@
 
 给本体自带官方简中、但 Steam 成就只有英文的游戏补上中文成就。
 
+## 游戏列表
+
 | AppID | 游戏 | 成就数 | 文件 |
 | --- | --- | --- | --- |
 | 105600 | Terraria / 泰拉瑞亚 | 137 | `UserGameStatsSchema_105600.bin` |
@@ -11,28 +13,33 @@
 | 508440 | Totally Accurate Battle Simulator | 64 | `UserGameStatsSchema_508440.bin` |
 | 632360 | Risk of Rain 2 / 雨中冒险 2 | 171 | `UserGameStatsSchema_632360.bin` |
 | 815370 | Green Hell / 绿色地狱 | 68 | `UserGameStatsSchema_815370.bin` |
-| 909080 | Cube Escape: Paradox / 方块逃脱：悖论 | 28 | `UserGameStatsSchema_909080.bin` |
 | 1222140 | Detroit: Become Human / 底特律：化身为人 | 48 | `UserGameStatsSchema_1222140.bin` |
 | 1326470 | Sons Of The Forest / 森林之子 | 32 | `UserGameStatsSchema_1326470.bin` |
 | 1568400 | Sheepy: A Short Adventure | 30 | `UserGameStatsSchema_1568400.bin` |
 
-非官方民间汉化，游戏内容版权归各开发者。
+共 10 款游戏。非官方民间汉化，游戏内容版权归各开发者。
 
 ## 安装
 
 先完全退出 Steam。
 
-**推荐** —— 用 [SATLI](https://github.com/GaBoron/SATLI) 导入对应的 `.zip`，装完开启「锁定 Steam 成就显示」。
-Steam 会从服务器刷新成就 schema，直接替换本机文件可能被还原。
+**推荐** —— 用 [SATLI](https://github.com/GaBoron/SATLI) 导入投稿 ZIP（在 `资料归档.zip` 里），
+装完开启「锁定 Steam 成就显示」。Steam 会从服务器刷新成就 schema，直接替换本机文件可能被还原。
 
 **手动** —— 把 `.bin` 覆盖到 `<Steam>\appcache\stats\`，设为只读，重启 Steam。
 
 ## 仓库内容
 
-根目录只放成品，便于直接取用；每款游戏的溯源材料收在同名目录下。
+根目录只放各游戏的成品 BIN，方便直接取用；其余材料全部收在 `资料归档.zip` 里。
 
 ```
 UserGameStatsSchema_<appid>.bin    汉化后的 schema
+资料归档.zip                       投稿 ZIP、译文、来源记录、校验报告、对照表、工具
+```
+
+`资料归档.zip` 解包后：
+
+```
 UserGameStatsSchema_<appid>.zip    标准投稿 ZIP，供 SATLI 导入
 games/<appid>/                     译文、来源记录、校验报告、对照表
 games/<appid>/original/            未改动的原始 schema，用于还原
@@ -41,7 +48,8 @@ tools/                             二进制 KeyValues 编解码 + 独立校验�
 
 ## 说明
 
-- 只在每条成就的 `display/name` 与 `display/desc` 下追加 `schinese`，其余字段一律不动。
+- 只在每条成就的 `display/name` 与 `display/desc` 下追加 `schinese`，其余字段一律不动；
+  改动可用归档里的 `tools/verify.py` 逐字节校验。
 - 译文未经母语审校，欢迎 issue / PR。
 
 ## 制作
