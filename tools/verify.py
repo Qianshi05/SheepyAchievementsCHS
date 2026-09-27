@@ -144,17 +144,25 @@ def main():
 
     print()
     print("=== 5. target language appended last in every name/desc object ===")
-    conform = total = 0
+    conform = total = non_object = 0
     for path in lf:
+        # only achievement entries: some games also carry plain stat groups under
+        # stats/<n>/ whose display/name is a bare string, not an object.
+        if "/bits/" not in path:
+            continue
         if path.endswith("/display/name") or path.endswith("/display/desc"):
             total += 1
             obj = fin_root
             for part in [p for p in path.split("/") if p]:
                 obj = obj.get(part)
+            if not hasattr(obj, "keys"):
+                non_object += 1
+                continue
             if obj.keys()[-1] == lang:
                 conform += 1
     check("all %d name/desc objects end with %s" % (total, lang),
-          total > 0 and conform == total, "%d/%d conform" % (conform, total))
+          total > 0 and conform == total and not non_object,
+          "%d/%d conform, %d not objects" % (conform, total, non_object))
 
     print()
     print("=== 6. localized text matches the reviewed CSV ===")
