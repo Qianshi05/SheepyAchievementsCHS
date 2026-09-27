@@ -16,16 +16,16 @@
 Steam 会从服务器刷新成就 schema，直接替换本机文件可能被还原。
 
 **手动** —— 把 `.bin` 覆盖到 `<Steam>\appcache\stats\`，设为只读，重启 Steam。
-原始文件在 `original/` 下，可随时还原。
 
 ## 仓库内容
+
+根目录只放成品，便于直接取用；每款游戏的溯源材料收在同名目录下。
 
 ```
 UserGameStatsSchema_<appid>.bin    汉化后的 schema
 UserGameStatsSchema_<appid>.zip    标准投稿 ZIP，供 SATLI 导入
-original/                          未改动的原始 schema，用于还原
-work/                              译文、来源记录与校验报告
-汉化对照表.md                       英中对照 + 逐条译者注
+games/<appid>/                     译文、来源记录、校验报告、对照表
+games/<appid>/original/            未改动的原始 schema，用于还原
 tools/                             二进制 KeyValues 编解码 + 独立校验脚本
 ```
 

@@ -2,7 +2,7 @@
   "status": "complete",
   "app_id": "1568400",
   "target_language": "schinese",
-  "original_source": "original/UserGameStatsSchema_1568400.bin",
+  "original_source": "games/1568400/original/UserGameStatsSchema_1568400.bin",
   "original_was_modified": false,
   "source_sha256": "75f1d1f6a337c539e212133dbd6ebf4b10ef318ef4b605ed98828c415ab8a911",
   "localized_sha256": "c8c88589eb9ecf9b77c3f1201a38eef8e00c25666ac6666da179f1d3570da229",
@@ -37,6 +37,6 @@
   },
   "final_bin": "UserGameStatsSchema_1568400.bin",
   "final_zip": "UserGameStatsSchema_1568400.zip",
-  "report": "work/report.json",
+  "report": "games/1568400/report.json",
   "final_zip_sha256": "bfa1e171da1dd70a360dc8204c601e923d11da5ca0a8dae14bcc0f68e1bfe411"
 }

@@ -1,13 +1,16 @@
 """Independent verification of a localized Steam achievement schema.
 
 Re-parses input and output with an independent codec, walks both trees and
-asserts that the ONLY difference is the addition of
-display/name/schinese and display/desc/schinese nodes, with every other node,
-value, ordering, token, icon and hidden flag left untouched.
+asserts that the ONLY difference is the addition of one language to every
+achievement's display/name and display/desc, with every other node, value,
+ordering, token, icon and hidden flag left untouched.
 
-Usage (defaults match the localization/<appid>-<language>/ project layout):
-    python verify.py
-    python verify.py --input original.bin --final localized.bin --csv translations.csv
+Usage:
+    python verify.py --input <pristine.bin> --final <localized.bin> \
+                     --csv <translations.csv> [--target-language schinese]
+
+Defaults match the localization/<appid>-<language>/ project layout. --csv is
+optional (text comparison is skipped if the file is absent).
 """
 import argparse
 import csv
@@ -21,9 +24,7 @@ import kvbin  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WS = os.path.join(ROOT, "localization", "1568400-schinese")
-
 APP_ID = "1568400"
-SOURCE_SHA256 = "75f1d1f6a337c539e212133dbd6ebf4b10ef318ef4b605ed98828c415ab8a911"
 
 ORIG = os.path.join(WS, "input", "UserGameStatsSchema_%s.bin" % APP_ID)
 FINAL = os.path.join(WS, "final", "UserGameStatsSchema_%s.bin" % APP_ID)
@@ -54,12 +55,30 @@ def walk(obj, prefix, leaves, order):
     order[prefix] = names
 
 
+def achievement_bits(root, app_id):
+    out = []
+    for grp in root.get(app_id).get("stats"):
+        g = grp[2]
+        if g.get("type") != "ACHIEVEMENTS":
+            continue
+        bits = g.get("bits")
+        if bits is not None:
+            out.extend(bits)
+    return out
+
+
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description="verify a localized achievement schema")
     parser.add_argument("--input", default=ORIG, help="pristine source schema")
     parser.add_argument("--final", default=FINAL, help="localized schema to verify")
     parser.add_argument("--csv", default=CSV_PATH, help="reviewed translations")
+    parser.add_argument("--app-id", default=APP_ID)
+    parser.add_argument("--target-language", default="schinese")
+    parser.add_argument("--expect-source-sha", default=None,
+                        help="fail unless the source file has this sha256")
     args = parser.parse_args()
+    lang = args.target_language
+    app_id = args.app_id
 
     print("=== 1. independent codec: byte-exact round-trip ===")
     for label, path in (("input", args.input), ("final", args.final)):
@@ -68,20 +87,23 @@ def main():
         check("%s round-trip byte-identical (%d B)" % (label, len(data)),
               out == data and pos == len(data))
         if label == "input":
-            orig_root, orig_data = root, data
+            orig_root = root
         else:
-            fin_root, fin_data = root, data
+            fin_root = root
 
     print()
-    print("=== 2. sha256 of input must be unchanged ===")
-    with open(args.input, "rb") as fh:
-        src_sha = hashlib.sha256(fh.read()).hexdigest()
-    check("input sha256 matches expected source",
-          src_sha == SOURCE_SHA256, src_sha)
-    check("input file still %d bytes" % 8601, len(orig_data) == 8601, str(len(orig_data)))
+    print("=== 2. source file integrity ===")
+    src_sha = hashlib.sha256(open(args.input, "rb").read()).hexdigest()
+    if args.expect_source_sha:
+        check("source sha256 matches expected", src_sha == args.expect_source_sha, src_sha)
+    else:
+        print("  [SKIP] no --expect-source-sha given; source sha256 = %s" % src_sha)
 
     print()
     print("=== 3. structural diff (input -> final) ===")
+    orig_bits = achievement_bits(orig_root, app_id)
+    fin_bits = achievement_bits(fin_root, app_id)
+    n_ach = len(orig_bits)
     lo, lf, oo, of = {}, {}, {}, {}
     walk(orig_root, "", lo, oo)
     walk(fin_root, "", lf, of)
@@ -90,17 +112,18 @@ def main():
     changed = [k for k in (set(lo) & set(lf)) if lo[k] != lf[k]]
     check("nothing removed", not removed, "; ".join(removed[:5]))
     check("nothing changed outside additions", not changed, "; ".join(changed[:5]))
-    check("exactly 60 nodes added", len(added) == 60, "got %d" % len(added))
+    check("achievement count unchanged (%d)" % n_ach, len(fin_bits) == n_ach)
+    check("exactly %d nodes added (2 per achievement)" % (2 * n_ach),
+          len(added) == 2 * n_ach, "got %d" % len(added))
 
-    bad_added = [p for p in added
-                 if not p.endswith("/display/name/schinese")
-                 and not p.endswith("/display/desc/schinese")]
-    check("every added node is display/{name,desc}/schinese", not bad_added,
+    want_name = "/display/name/" + lang
+    want_desc = "/display/desc/" + lang
+    bad_added = [p for p in added if not (p.endswith(want_name) or p.endswith(want_desc))]
+    check("every added node is display/{name,desc}/%s" % lang, not bad_added,
           "; ".join(bad_added[:5]))
-
-    n_names = sum(1 for p in added if p.endswith("/display/name/schinese"))
-    n_descs = sum(1 for p in added if p.endswith("/display/desc/schinese"))
-    check("30 name + 30 desc nodes", n_names == 30 and n_descs == 30,
+    n_names = sum(1 for p in added if p.endswith(want_name))
+    n_descs = sum(1 for p in added if p.endswith(want_desc))
+    check("%d name + %d desc nodes" % (n_ach, n_ach), n_names == n_ach and n_descs == n_ach,
           "names=%d descs=%d" % (n_names, n_descs))
 
     print()
@@ -112,28 +135,26 @@ def main():
             after = of.get(k) or []
             tail_ok = (len(after) == len(before) + 1
                        and after[:len(before)] == before
-                       and after[-1][1] == "schinese"
+                       and after[-1][1] == lang
                        and k.endswith(("/display/name", "/display/desc")))
             if not tail_ok:
                 order_diffs.append(k)
-    check("all key-order changes are a schinese appended at the tail", not order_diffs,
+    check("all key-order changes are a %s appended at the tail" % lang, not order_diffs,
           "; ".join(order_diffs[:5]))
 
     print()
-    print("=== 5. schinese placement matches the reference repo convention ===")
-    conform = 0
-    total = 0
+    print("=== 5. target language appended last in every name/desc object ===")
+    conform = total = 0
     for path in lf:
         if path.endswith("/display/name") or path.endswith("/display/desc"):
             total += 1
             obj = fin_root
             for part in [p for p in path.split("/") if p]:
                 obj = obj.get(part)
-            keys = obj.keys()
-            if keys[:2] == ["english", "token"] and keys[-1] == "schinese":
+            if obj.keys()[-1] == lang:
                 conform += 1
-    check("all %d name/desc objects are [english, token, schinese]" % total,
-          conform == total, "%d/%d conform" % (conform, total))
+    check("all %d name/desc objects end with %s" % (total, lang),
+          total > 0 and conform == total, "%d/%d conform" % (conform, total))
 
     print()
     print("=== 6. localized text matches the reviewed CSV ===")
@@ -141,52 +162,55 @@ def main():
         with open(args.csv, "r", encoding="utf-8-sig", newline="") as fh:
             rows = list(csv.DictReader(fh))
         by_id = {r["api_name"]: r for r in rows}
-        sroot = fin_root.get(APP_ID).get("stats").get("1").get("bits")
-        check("achievement count still 30", len(sroot) == 30, str(len(sroot)))
+        check("CSV row count matches achievements", len(rows) == len(fin_bits),
+              "csv=%d schema=%d" % (len(rows), len(fin_bits)))
         mismatches = []
-        for entry in sroot:
+        for entry in fin_bits:
             api = entry[2].get("name")
             disp = entry[2].get("display")
             row = by_id.get(api)
             if row is None:
                 mismatches.append("%s: id not in CSV" % api)
                 continue
-            if disp.get("name").get("schinese") != row["target_name"]:
+            if disp.get("name").get(lang) != row["target_name"]:
                 mismatches.append("%s name" % api)
-            if disp.get("desc").get("schinese") != row["target_description"]:
+            if disp.get("desc").get(lang) != row["target_description"]:
                 mismatches.append("%s desc" % api)
-        check("all 30 achievements match CSV name+desc", not mismatches,
+        check("all achievements match CSV name+desc", not mismatches,
               "; ".join(mismatches[:5]))
     else:
         print("  [SKIP] translations CSV not found at %s" % args.csv)
 
     print()
-    print("=== 7. english/token/hidden/icon untouched (checked for all) ===")
-    orig_bits = orig_root.get(APP_ID).get("stats").get("1").get("bits")
-    sroot = fin_root.get(APP_ID).get("stats").get("1").get("bits")
+    print("=== 7. every non-target field untouched (checked for all) ===")
     problems = []
-    for eo, ef in zip(orig_bits, sroot):
+    for eo, ef in zip(orig_bits, fin_bits):
         if eo[2].get("name") != ef[2].get("name"):
             problems.append("id order")
         do, df = eo[2].get("display"), ef[2].get("display")
-        for field in ("english", "token"):
-            if do.get("name").get(field) != df.get("name").get(field):
-                problems.append("%s name.%s" % (eo[2].get("name"), field))
-            if do.get("desc").get(field) != df.get("desc").get(field):
-                problems.append("%s desc.%s" % (eo[2].get("name"), field))
+        for field in ("name", "desc"):
+            so, sf = do.get(field), df.get(field)
+            if so is None or sf is None:
+                continue
+            for k in so.keys():
+                if k == lang:
+                    continue
+                if so.get(k) != sf.get(k):
+                    problems.append("%s %s.%s" % (eo[2].get("name"), field, k))
         for field in ("hidden", "icon", "icon_gray"):
             if do.get(field) != df.get(field):
                 problems.append("%s %s" % (eo[2].get("name"), field))
-    check("no non-schinese field altered, order identical", not problems,
+    check("no non-target field altered, order identical", not problems,
           "; ".join(problems[:5]))
 
     print()
-    print("=== 8. gamename/version/type untouched ===")
+    print("=== 8. app-level fields untouched ===")
     for field in ("version", "gamename"):
-        check("%s.%s unchanged" % (APP_ID, field),
-              orig_root.get(APP_ID).get(field) == fin_root.get(APP_ID).get(field))
-    check("stats group type still ACHIEVEMENTS",
-          fin_root.get(APP_ID).get("stats").get("1").get("type") == "ACHIEVEMENTS")
+        check("%s.%s unchanged" % (app_id, field),
+              orig_root.get(app_id).get(field) == fin_root.get(app_id).get(field))
+    check("stats group types unchanged",
+          [g[2].get("type") for g in orig_root.get(app_id).get("stats")]
+          == [g[2].get("type") for g in fin_root.get(app_id).get("stats")])
 
     print()
     if failures:

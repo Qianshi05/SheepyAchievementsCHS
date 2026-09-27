@@ -38,16 +38,26 @@ assert kvbin.serialize(root) == raw                              # 逐字节回�
 一律未变。
 
 ```bash
-python tools/verify.py
-python tools/verify.py --input original/UserGameStatsSchema_1568400.bin \
+python tools/verify.py --input games/<appid>/original/UserGameStatsSchema_<appid>.bin \
+                       --final UserGameStatsSchema_<appid>.bin \
+                       --csv   games/<appid>/translations.csv
+```
+
+例如 Sheepy：
+
+```bash
+python tools/verify.py --input games/1568400/original/UserGameStatsSchema_1568400.bin \
                        --final UserGameStatsSchema_1568400.bin \
-                       --csv work/translations.csv
+                       --csv   games/1568400/translations.csv
 ```
 
 不带参数时按 `localization/<appid>-<language>/` 工程布局找文件；`--csv` 不存在时会跳过文本比对，
 其余检查照跑。全部通过时退出码为 0。
 
-检查项：回环逐字节一致、源文件哈希未变、无删除无改动、恰好新增 60 个节点、新增位置合法、
-节点顺序仅在 name/desc 尾部追加、`[english, token, schinese]` 排列合规、译文与 CSV 一致、
-`english`/`token`/`hidden`/`icon`/`icon_gray` 未动、成就数量与顺序不变、`gamename`/`version`/
+检查项：回环逐字节一致、源文件哈希未变、无删除无改动、恰好新增 2 × 成就数 个节点、新增位置合法、
+节点顺序仅在 name/desc 尾部追加、目标语言排在每个 name/desc 对象的最后、译文与 CSV 一致、
+其余语言与 `hidden`/`icon`/`icon_gray` 未动、成就数量与顺序不变、`gamename`/`version`/
 `stats.type` 未动。
+
+脚本本身与游戏无关：节点数与语言都由参数和目标文件推出。可选 `--expect-source-sha <sha256>`
+用来额外锁定源文件版本，`--app-id` 与 `--target-language` 用于非默认的游戏/语言。
