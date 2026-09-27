@@ -1,0 +1,47 @@
+{
+  "status": "complete",
+  "app_id": "508440",
+  "target_language": "schinese",
+  "original_source": "games/508440/original/UserGameStatsSchema_508440.bin",
+  "original_was_modified": false,
+  "source_sha256": "31990c00dd46dd1378a8dd60e8bfadead28b07fe8b50a11724e2e8bbe49fa0a5",
+  "localized_sha256": "5f79f5b6f13acd7fefd986fb4402b9d1f50d7a6a3e6845267a79d0e301533856",
+  "localized_size": 27531,
+  "roundtrip_equal": true,
+  "achievement_count": 64,
+  "target_language_coverage_count": 64,
+  "target_language_coverage": {
+    "names": 64,
+    "descriptions": 64,
+    "complete_achievements": 64
+  },
+  "target_language_nodes_changed": 128,
+  "source_languages_consulted": [
+    "english"
+  ],
+  "online_sources": [
+    {
+      "kind": "official-store-page",
+      "url": "https://store.steampowered.com/app/508440/",
+      "note": "官方商店页（简体中文），用于确认游戏内术语：战役、兵种、派系、沙盒模式、兵种操控（possession 的官方用词）。"
+    },
+    {
+      "kind": "in-game-terminology",
+      "url": "https://zh.moegirl.org.cn/%E5%85%A8%E9%9D%A2%E6%88%98%E4%BA%89%E6%A8%A1%E6%8B%9F%E5%99%A8",
+      "note": "萌娘百科《全面战争模拟器》词条，逐条并列中文与英文原名，来源为游戏内官方简中：12 个战役名（介绍/冒险/挑战/王朝/文艺复兴/海盗/亡灵/模拟/狂野西部/遗产/魔幻善/魔幻恶）、14 个派系名（含隐藏），以及棒槌手、投石车、气球弓箭手、死神、火厢车、树巨人、猛犸、骑士、吸血鬼、坦克、宙斯、雷神、火枪手、治疗师、冰霜巨人、快枪手等兵种名。成就译文的全部专名以此为准。"
+    },
+    {
+      "kind": "steam-web-api",
+      "url": "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=508440&format=json",
+      "note": "线上成就接口，校验本地 schema 的成就集合：线上 64 条与本地完全一致，无版本漂移。"
+    }
+  ],
+  "translation_library": {
+    "checked": true,
+    "match": null
+  },
+  "final_bin": "UserGameStatsSchema_508440.bin",
+  "final_zip": "UserGameStatsSchema_508440.zip",
+  "report": "games/508440/report.json",
+  "final_zip_sha256": "b83a96e693fcafecd20cb6bb11d691a28a56fd4e55da685f82c32bf0ff05b7fd"
+}

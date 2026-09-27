@@ -5,6 +5,7 @@
 | AppID | 游戏 | 成就数 | 文件 |
 | --- | --- | --- | --- |
 | 1568400 | Sheepy: A Short Adventure | 30 | `UserGameStatsSchema_1568400.bin` |
+| 508440 | Totally Accurate Battle Simulator | 64 | `UserGameStatsSchema_508440.bin` |
 | 815370 | Green Hell / 绿色地狱 | 68 | `UserGameStatsSchema_815370.bin` |
 
 非官方民间汉化，游戏内容版权归各开发者。

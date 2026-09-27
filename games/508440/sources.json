@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "app_id": "508440",
+  "target_language": "schinese",
+  "network_access": "available",
+  "source_schema_languages": [
+    "english"
+  ],
+  "consulted_schema_languages": [
+    "english"
+  ],
+  "online_sources": [
+    {
+      "kind": "official-store-page",
+      "url": "https://store.steampowered.com/app/508440/",
+      "note": "官方商店页（简体中文），用于确认游戏内术语：战役、兵种、派系、沙盒模式、兵种操控（possession 的官方用词）。"
+    },
+    {
+      "kind": "in-game-terminology",
+      "url": "https://zh.moegirl.org.cn/%E5%85%A8%E9%9D%A2%E6%88%98%E4%BA%89%E6%A8%A1%E6%8B%9F%E5%99%A8",
+      "note": "萌娘百科《全面战争模拟器》词条，逐条并列中文与英文原名，来源为游戏内官方简中：12 个战役名（介绍/冒险/挑战/王朝/文艺复兴/海盗/亡灵/模拟/狂野西部/遗产/魔幻善/魔幻恶）、14 个派系名（含隐藏），以及棒槌手、投石车、气球弓箭手、死神、火厢车、树巨人、猛犸、骑士、吸血鬼、坦克、宙斯、雷神、火枪手、治疗师、冰霜巨人、快枪手等兵种名。成就译文的全部专名以此为准。"
+    },
+    {
+      "kind": "steam-web-api",
+      "url": "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=508440&format=json",
+      "note": "线上成就接口，校验本地 schema 的成就集合：线上 64 条与本地完全一致，无版本漂移。"
+    }
+  ],
+  "notes": [
+    "The connected translation library has no entry for this app ID.",
+    "源 schema 只带 english 一种语言，已通读。",
+    "TABS 支持官方简中，但没有本地化的奖杯/成就文本可查（psnine 无对应奖杯组），因此 64 条成就的名称与描述均为新译；专名一律采用游戏内官方简中。",
+    "“亡灵”是 Spooky 派系与战役的官方中文名（不是“惊悚”），译文据此统一。",
+    "数条成就名含英语双关或梗，中文无法兼顾，已在 translation_notes 逐条标注：Parlay（加勒比海盗）、Reaper Creeper（押韵）、Timber!（伐木警报）、Castlevanic（恶魔城）、Tank you（谐音 Thank you）、Evil spelled backwards（evil 倒拼为 live）、Ice to meet you（谐音 Nice to meet you）、Spooky Scary Skeletons（梗曲）、Dumbo（小飞象）。",
+    "两处按成就实际条件而非英文原文字面翻译：FINISH_FANTASY_GOOD_NO_DEFEAT（原文 The Good is defeated）与 FINISH_FANTASY_EVIL_NO_DEFEAT（原文 The Evil is defeated），二者条件均为“己方一次未败”，英文原文与条件相左，疑为笔误，故译作“善者不败 / 恶者不败”，并在 translation_notes 说明。",
+    "标点与数字沿用游戏官方简中的习惯（数字两侧不加空格，中文引号用「」标示战役名）。"
+  ]
+}
