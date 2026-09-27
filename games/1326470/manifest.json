@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "app_id": "1326470",
+  "target_language": "schinese",
+  "original_source": "games/1326470/original/UserGameStatsSchema_1326470.bin",
+  "source_file": "input\\UserGameStatsSchema_1326470.bin",
+  "source_sha256": "43facba88d17bc556c5104cd81913e51c935567dca242460b8eee29a84ba24fb",
+  "source_size": 16327,
+  "achievement_count": 32,
+  "source_languages": [
+    "english"
+  ],
+  "source_language_coverage": {
+    "english": {
+      "names": 32,
+      "descriptions": 32,
+      "complete_achievements": 32
+    }
+  },
+  "translation_library": {
+    "checked": true,
+    "match": null
+  }
+}

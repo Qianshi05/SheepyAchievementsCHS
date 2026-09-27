@@ -1,0 +1,57 @@
+{
+  "status": "complete",
+  "app_id": "242760",
+  "target_language": "schinese",
+  "original_source": "games/242760/original/UserGameStatsSchema_242760.bin",
+  "original_was_modified": false,
+  "source_sha256": "60e7b600bb0b3fe69fb4429bd953e1e570502925142b1574230dbfd09a03902d",
+  "localized_sha256": "783e363e7f9286e4c4ae147600795b3eec334301296950895b2c7a242776e6a9",
+  "localized_size": 21712,
+  "roundtrip_equal": true,
+  "achievement_count": 45,
+  "target_language_coverage_count": 45,
+  "target_language_coverage": {
+    "names": 45,
+    "descriptions": 45,
+    "complete_achievements": 45
+  },
+  "target_language_nodes_changed": 90,
+  "source_languages_consulted": [
+    "english"
+  ],
+  "online_sources": [
+    {
+      "kind": "community-translation-library",
+      "url": "https://raw.githubusercontent.com/GaBoron/steam-achievement-translation-library/main/files/242760/UserGameStatsSchema_242760.bin",
+      "note": "GaBoron 成就翻译库的 242760 条目（The Forest 森林），带 schinese，作为已验证的既有译本采用。其英文原文与本机 schema 逐条完全一致，确认针对同一成就集与版本。"
+    },
+    {
+      "kind": "official-store-page",
+      "url": "https://store.steampowered.com/app/242760/",
+      "note": "官方商店页（简体中文），用于确认游戏身份、官方中文支持与作品用语。"
+    },
+    {
+      "kind": "steam-web-api",
+      "url": "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=242760&format=json",
+      "note": "线上成就接口，校验本地 schema 的成就集合与线上一致、无版本漂移。"
+    }
+  ],
+  "translation_library": {
+    "checked": true,
+    "match": {
+      "game_name": "The Forest 森林",
+      "languages": [
+        "english",
+        "schinese"
+      ],
+      "schema_file": "files/242760/UserGameStatsSchema_242760.bin",
+      "sha256": "783e363e7f9286e4c4ae147600795b3eec334301296950895b2c7a242776e6a9",
+      "source_url": "https://raw.githubusercontent.com/GaBoron/steam-achievement-translation-library/main/files/242760/UserGameStatsSchema_242760.bin",
+      "local_reference": "work\\references\\translation-library\\UserGameStatsSchema_242760.bin"
+    }
+  },
+  "final_bin": "UserGameStatsSchema_242760.bin",
+  "final_zip": "UserGameStatsSchema_242760.zip",
+  "report": "games/242760/report.json",
+  "final_zip_sha256": "8ecc37c35eead6098c28b26d670072ac35028cd1abbfc727c1cffe2e9bc83aff"
+}

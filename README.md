@@ -4,10 +4,13 @@
 
 | AppID | 游戏 | 成就数 | 文件 |
 | --- | --- | --- | --- |
-| 1568400 | Sheepy: A Short Adventure | 30 | `UserGameStatsSchema_1568400.bin` |
+| 105600 | Terraria / 泰拉瑞亚 | 137 | `UserGameStatsSchema_105600.bin` |
+| 242760 | The Forest / 森林 | 45 | `UserGameStatsSchema_242760.bin` |
 | 403640 | Dishonored 2 / 耻辱2 | 50 | `UserGameStatsSchema_403640.bin` |
 | 508440 | Totally Accurate Battle Simulator | 64 | `UserGameStatsSchema_508440.bin` |
 | 815370 | Green Hell / 绿色地狱 | 68 | `UserGameStatsSchema_815370.bin` |
+| 1326470 | Sons Of The Forest / 森林之子 | 32 | `UserGameStatsSchema_1326470.bin` |
+| 1568400 | Sheepy: A Short Adventure | 30 | `UserGameStatsSchema_1568400.bin` |
 
 非官方民间汉化，游戏内容版权归各开发者。
 

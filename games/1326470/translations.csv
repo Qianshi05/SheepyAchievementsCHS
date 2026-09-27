@@ -1,0 +1,33 @@
+﻿api_name,english_name,english_description,target_name,target_description,translation_notes
+ACH_THIS_CANT_BE_HEALTHY,THIS CAN’T BE HEALTHY,Drink 50 cans of Fi-Z,这可不太健康,喝下 50 罐 Fi-Z。,本作翻译库无条目，为新译。 Fi-Z 为游戏内虚构饮料品牌，保留原文。
+ACH_WEAR_TECH_ARMOR,DYNAMO,Wear a full set of Tech Armor,发电机,穿上一整套科技护甲。,本作翻译库无条目，为新译。
+ACH_COLLECT_WATCHES,COLLECTOR,Pickup 50 Drogue watches,收藏家,拾取 50 只德罗格手表。,本作翻译库无条目，为新译。 Drogue 为游戏内虚构手表品牌，音译。
+ACH_COLLECT_MONEY,1%,Collect $1000,1%,收集 1000 美元。,本作翻译库无条目，为新译。 原文 1% 指“最富的 1%”，保留数字形式。
+ACH_EAT_ALL_EDIBLES,FOODIE,Eat one of each type of edible in the game,美食家,吃下游戏中每一种可食用物品。,本作翻译库无条目，为新译。
+ACH_SURVIVE_DAY_1,SURVIVOR,Survive Day 1,幸存者,存活到第 1 天。,本作翻译库无条目，为新译。
+ACH_SURVIVE_DAY_10,WHAT COULD GO WRONG,Survive Day 10,能出什么岔子,存活到第 10 天。,本作翻译库无条目，为新译。
+ACH_SURVIVE_DAY_25,THIS PLACE ISN’T SO BAD,Survive Day 25,这地方还不赖,存活到第 25 天。,本作翻译库无条目，为新译。
+ACH_SURVIVE_DAY_50,NEVER GOING HOME,Survive Day 50,再也不回家了,存活到第 50 天。,本作翻译库无条目，为新译。
+ACH_TRUSTED,TRUSTED,Become an admin in a multiplayer game,值得信赖,在多人游戏中成为管理员。,本作翻译库无条目，为新译。
+ACH_OWN_ALL_CLOTHING,FASHIONISTA,Own every piece of clothing,时尚达人,拥有每一件衣物。,本作翻译库无条目，为新译。
+ACH_STRUCTURE_50_LOGS,TRADESMAN,Place 50 logs,工匠,放置 50 根原木。,本作翻译库无条目，为新译。
+ACH_STRUCTURE_100_LOGS,CONTRACTOR,Place 100 logs,承包商,放置 100 根原木。,本作翻译库无条目，为新译。
+ACH_STRUCTURE_500_LOGS,ARCHITECT,Place 500 logs,建筑师,放置 500 根原木。,本作翻译库无条目，为新译。
+ACH_STRUCTURE_1000_LOGS,CITY PLANNER,Place 1000 logs,城市规划师,放置 1000 根原木。,本作翻译库无条目，为新译。
+ACH_KILL_SLUGGIE,PINATA,Blow up a Sluggy,皮纳塔,炸掉一只史莱吉。,本作翻译库无条目，为新译。 Sluggy 为游戏内生物名，音译作“史莱吉”。
+ACH_KICKED_BY_HEAVY,SUCKER FOR PUNISHMENT,Get kicked by a heavy cannibal 5 times,挨揍上瘾,被壮硕的野人踢 5 次。,本作翻译库无条目，为新译。 cannibal 译作“野人”，沿用同系列前作 The Forest 已验证中文译本的通篇用法（如“击杀 100 名野人”）；商店页简介作“食人生物”属宣传文案，未采用。
+ACH_VIRGINIA_GPS,EVERY MOVE YOU MAKE,Give a GPS locator to Virginia,你的一举一动,给弗吉尼亚一个 GPS 定位器。,本作翻译库无条目，为新译。 原文出自歌曲《Every Breath You Take》的歌词，呼应弗吉尼亚会一路跟随玩家的设定。
+ACH_CRAFT_ALL_WEAPONS,MC CRAFTY,Craft all weapons,手工大师,制作所有武器。,本作翻译库无条目，为新译。
+ACH_EAT_RAW_FISH,I DREAM OF SUSHI,Eat 20 raw fish,我梦见寿司,吃下 20 条生鱼。,本作翻译库无条目，为新译。
+ACH_DIG_HOLES_100,BADGER,Dig 100 holes,獾,挖 100 个洞。,本作翻译库无条目，为新译。
+ACH_DIG_HOLES_1000,I LIKE BLISTERS,Dig 1000 holes,我喜欢起水泡,挖 1000 个洞。,本作翻译库无条目，为新译。 原文 I LIKE BLISTERS 为双关（水泡／喜欢受苦），照字面译。
+ACH_KILLED_BY_SHARK,NEED A BIGGER BOAT,Get killed by a shark,需要一艘更大的船,被鲨鱼杀死。,本作翻译库无条目，为新译。 出自电影《大白鲨》的经典台词。
+ACH_PRINT_ALL_ITEMS,MAKER,Print one of every item,制造者,打印每一种物品各一个。,本作翻译库无条目，为新译。 指游戏内的 3D 打印机。
+ACH_VIRGINIA_MAX_SENTIMENT,CHIVALRY IS NOT DEAD,Reach max sentiment with Virginia,骑士精神不灭,将弗吉尼亚的好感度升到最高。,本作翻译库无条目，为新译。
+ACH_LEAVE_THE_ISLAND,FOUGHT DEMONS,Leave the Island,与恶魔战斗过,离开这座岛。,本作翻译库无条目，为新译。
+ACH_STAY_BEHIND,FIGHT DEMONS,Stay on the Island,继续与恶魔战斗,留在岛上。,本作翻译库无条目，为新译。
+ACH_FINISH_STORY_WITH_ALL_NPCS,KEEP YOUR FRIENDS CLOSE,Complete the story with all friendly NPCs still alive,与朋友保持亲近,在所有友好 NPC 都存活的情况下完成剧情。,本作翻译库无条目，为新译。
+ACH_PLATED_WEAPONS,OOOH SHINY,Plate all valid weapons with Solafite,闪闪发亮,用索拉菲特强化所有可强化的武器。,本作翻译库无条目，为新译。 Solafite 为游戏内材料名，音译作“索拉菲特”。
+ACH_DISCOVERED_BLUEPRINTS,INTERIOR DESIGNER,Find all the discoverable blueprints,室内设计师,找到所有可发现的蓝图。,本作翻译库无条目，为新译。
+ACH_FOUND_FOOTAGE,BLOCKBUSTER,Watch all the found footage recordings,大片,看完所有拾得录像。,本作翻译库无条目，为新译。
+ACH_NOTE_PAGES,GUMSHOE,Collect all the note pages,侦探,收集所有笔记页。,本作翻译库无条目，为新译。
